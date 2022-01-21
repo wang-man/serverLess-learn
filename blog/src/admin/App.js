@@ -1,8 +1,8 @@
-
+import Home from './modules/Home';
 function App() {
   return (
     <div className="App">
-      admin page
+      <Home />
     </div>
   );
 }

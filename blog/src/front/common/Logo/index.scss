@@ -1,0 +1,28 @@
+.navbar {
+  border-bottom: 1px solid #f0f0f0;
+
+  .navbar-nav {
+    display: flex;
+
+    .tab {
+      margin-right: 10px;
+    }
+
+    a {
+      display: block;
+      height: 56px;
+      line-height: 26px;
+      padding: 15px;
+      font-size: 18px;
+      color: rgba(0, 0, 0, 0.85);
+
+      &.active {
+        color: #ea6f5a;
+      }
+
+      .anticon {
+        margin-right: 4px;
+      }
+    }
+  }
+}

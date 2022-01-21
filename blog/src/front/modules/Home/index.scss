@@ -1,0 +1,86 @@
+.home-page {
+  .ant-layout-header {
+    background-color: #fff;
+  }
+
+}
+
+.main {
+  margin-top: 60px;
+}
+
+.aside {
+  margin-top: 40px;
+}
+
+.note-list {
+  .list {
+    display: flex;
+    border-bottom: 1px solid #f0f0f0;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+
+    .content {
+      flex: 3;
+      padding-right: 20px;
+
+      .title {
+        line-height: 27px;
+        margin-bottom: 12px;
+        font-size: 18px;
+      }
+
+      .abstract {
+        line-height: 24px;
+        margin-bottom: 10px;
+        font-size: 13px;
+        color: #999;
+      }
+
+      .meta {
+        font-size: 12px;
+        color: #b4b4b4;
+
+        .anticon {
+          margin-right: 4px;
+        }
+
+        a {
+          color: #b4b4b4;
+        }
+
+        .jsd-meta {
+          margin-right: 10px;
+          color: #ea6f5a;
+        }
+
+        .nickname {
+          margin-right: 10px;
+        }
+
+        .comments {
+          margin-right: 10px;
+        }
+      }
+    }
+
+    .img {
+      flex: 1;
+
+      img {
+        width: 100%;
+        border-radius: 4px;
+      }
+    }
+  }
+}
+
+.board,
+.download-qrbox,
+.recommended {
+  margin-bottom: 10px;
+
+  img {
+    width: 100%;
+  }
+}
