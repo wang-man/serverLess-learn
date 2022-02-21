@@ -1,11 +1,19 @@
 import { Configuration } from '@midwayjs/decorator';
 import { ILifeCycle } from '@midwayjs/core';
-import { join } from 'path';
+import * as validate from '@midwayjs/validate';
+import * as faas from '@midwayjs/faas';
+import * as orm from '@midwayjs/orm';
+import * as defaultConfig from './config/config.default';
 
 @Configuration({
-  importConfigs: [join(__dirname, './config/')],
+  imports: [faas, orm, validate],
+  importConfigs: [
+    {
+      default: defaultConfig
+    },
+  ],
   conflictCheck: true,
 })
 export class ContainerLifeCycle implements ILifeCycle {
-  async onReady() {}
+  async onReady() { }
 }
