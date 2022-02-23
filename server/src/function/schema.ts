@@ -6,12 +6,14 @@ import {
   // Query,
   Body,
   Controller,
+  Headers,
   Get,
   Post,
   ALL
 } from '@midwayjs/decorator';
 import { Validate } from "@midwayjs/validate";
 import { Context } from '@midwayjs/faas';
+import { AuthenticationClient } from 'authing-js-sdk'
 import { SchemaService } from '../service/schema';
 import { SchemaDTO } from '../dto/schema';
 import { getStandardResponse } from '../util/common';
@@ -43,7 +45,15 @@ export class BlogHTTPService {
 
   @Post('/save')
   @Validate()
-  async save(@Body(ALL) schemaData: SchemaDTO) {
+  async save(@Body(ALL) schemaData: SchemaDTO, @Headers('token') token: string) {
+    console.log(token)
+    const authing = new AuthenticationClient({
+      appId: '6216384893f54146ce8ea0ef',
+      appHost: 'https://maikpaadafck-demo.authing.cn/oidc',
+      token
+    })
+    const user = await authing.getCurrentUser();
+    console.log(user)
     const result = await this.schemaService.save(schemaData.schema);
     return getStandardResponse(0, result);
   }

@@ -14,22 +14,22 @@ const render = (index, item) => {
 }
 
 const Home = () => {
-  const [ pageSchema, setPageSchema ] = useState({});
+  const [pageSchema, setPageSchema] = useState({});
   const { children = [], attributes = {} } = pageSchema;
 
   useEffect(() => {
-    request.get('/api/schema/getLatestOne').then((response) => {
+    request.get('/api/schema/getLast').then((response) => {
       const data = response?.data;
       data && setPageSchema(parseJsonByString(data.schema, {}));
     });
   }, [])
 
   return (
-    <div>
+    <div className='wrapper'>
       <Helmet>
         <title>{attributes?.title || ''}</title>
       </Helmet>
-      { children.map((item, index) => render(index, item)) }
+      {children.length ? children.map((item, index) => render(index, item)) : <h1 className='error-title'>请在后台编辑博客模块</h1>}
     </div>
   );
 }

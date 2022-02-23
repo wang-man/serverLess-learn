@@ -5,9 +5,10 @@ import { setLoginData } from '../util/login';
 import '@authing/react-ui-components/lib/index.min.css'
 
 const Login = () => {
-  const appId = '61594a7fe2c7753c9b4da6cd'
+  const appId = '6216384893f54146ce8ea0ef'
   const onLogin = (userInfo) => {
     const { token, tokenExpiredAt, photo } = userInfo;
+    window.localStorage.setItem('userInfo', JSON.stringify(userInfo))
     setLoginData(token, tokenExpiredAt, photo);
     window.location.reload();
   }

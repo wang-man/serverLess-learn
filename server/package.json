@@ -22,6 +22,7 @@
     "@midwayjs/faas": "^3.0.0",
     "@midwayjs/orm": "3",
     "@midwayjs/validate": "3",
+    "authing-js-sdk": "^4.23.21",
     "mysql": "^2.18.1",
     "typeorm": "^0.2.43"
   },

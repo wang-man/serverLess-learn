@@ -22,7 +22,7 @@ import './style.scss';
 const { Header, Sider, Content } = Layout;
 
 initAuthClient({
-  appId: '61594a7fe2c7753c9b4da6cd',
+  appId: '6216384893f54146ce8ea0ef',
 })
 
 const useCollapsed = () => {
@@ -39,7 +39,7 @@ const Wrapper = () => {
   const photo = window.localStorage.photo;
 
   useEffect(() => {
-    request.get('/api/schema/getLatestOne').then((response) => {
+    request.get('/api/schema/getLast').then((response) => {
       const data = response?.data;
       data && changeSchema(parseJsonByString(data.schema, {}));
     });

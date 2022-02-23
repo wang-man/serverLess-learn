@@ -12,11 +12,11 @@ const HomeManagement = () => {
   const handleSaveBtnClick = () => {
     request.post('/api/schema/save', {
       schema: JSON.stringify(schema)
-    }).then(() => {})
+    }).then(() => { })
   }
 
   const handleResetBtnClick = () => {
-    request.get('/api/schema/getLatestOne').then((response) => {
+    request.get('/api/schema/getLast').then((response) => {
       const data = response?.data;
       data && changeSchema(parseJsonByString(data.schema, {}));
     });

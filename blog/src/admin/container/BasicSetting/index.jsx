@@ -12,11 +12,11 @@ const BasicSetting = () => {
   const handleSaveBtnClick = () => {
     request.post('/api/schema/save', {
       schema: JSON.stringify(schema)
-    }).then(() => {})
+    }).then(() => { })
   }
 
   const handleResetBtnClick = () => {
-    request.get('/api/schema/getLatestOne').then((response) => {
+    request.get('/api/schema/getLast').then((response) => {
       const data = response?.data;
       data && changeSchema(parseJsonByString(data.schema, {}));
     });
@@ -31,7 +31,7 @@ const BasicSetting = () => {
       <div className={styles.row}>
         <div className={styles.title}>页面标题：</div>
         <div className={styles.content}>
-          <Input value={title} onChange={handleTitleChange}/>
+          <Input value={title} onChange={handleTitleChange} />
         </div>
       </div>
       <div className={styles.buttons}>
