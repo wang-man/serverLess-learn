@@ -42,7 +42,6 @@ const Wrapper = () => {
       const data = response?.data;
       data && changeSchema(parseJsonByString(data.schema, {}));
     });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleLogout = () => {
