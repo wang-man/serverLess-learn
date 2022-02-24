@@ -16,7 +16,6 @@ import Login from './container/Login';
 import styles from './style.module.scss';
 
 import 'normalize.css';
-import 'antd/dist/antd.css';
 import './style.scss';
 
 const { Header, Sider, Content } = Layout;

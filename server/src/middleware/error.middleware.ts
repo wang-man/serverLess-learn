@@ -12,7 +12,8 @@ export class ErrorMiddleware {
       try {
         await next();
       } catch (error) {
-        ctx.body = getStandardResponse(1, null, error.toString())
+        console.log(error)
+        ctx.body = getStandardResponse(error.code, null, error.message)
       }
     };
   }

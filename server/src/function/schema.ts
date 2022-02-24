@@ -46,15 +46,16 @@ export class BlogHTTPService {
   @Post('/save')
   @Validate()
   async save(@Body(ALL) schemaData: SchemaDTO, @Headers('token') token: string) {
-    console.log(token)
     const authing = new AuthenticationClient({
       appId: '6216384893f54146ce8ea0ef',
-      appHost: 'https://maikpaadafck-demo.authing.cn/oidc',
+      appHost: 'https://maikpaadafck-demo.authing.cn',
       token
     })
-    const user = await authing.getCurrentUser();
-    console.log(user)
+    const { username } = await authing.getCurrentUser();
+    if (username !== 'man') {
+      return getStandardResponse(1, null, '您没有此权限');
+    }
     const result = await this.schemaService.save(schemaData.schema);
-    return getStandardResponse(0, result);
+    return getStandardResponse(0, result, '保存成功');
   }
 }

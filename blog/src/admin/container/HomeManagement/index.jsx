@@ -1,4 +1,4 @@
-import { Button } from 'antd';
+import { Button, message } from 'antd';
 import request from '../../../common/request';
 import AreaList from './component/AreaList';
 import { useSchemaData } from '../../hook/useSchemaData';
@@ -12,7 +12,13 @@ const HomeManagement = () => {
   const handleSaveBtnClick = () => {
     request.post('/api/schema/save', {
       schema: JSON.stringify(schema)
-    }).then(() => { })
+    }).then(res => {
+      if (res.code !== 0) {
+        res.message && message.error(res.message);
+        return;
+      }
+      res.message && message.success(res.message);
+    })
   }
 
   const handleResetBtnClick = () => {

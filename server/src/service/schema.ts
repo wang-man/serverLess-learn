@@ -12,7 +12,7 @@ export class SchemaService {
   async save(schemaData: string) {
     const schema = new Schema();
     schema.schema = schemaData;
-    const result = await this.schemaModel.save(schema);
+    const result = await this.schemaModel.save(schema);   // typeorm自带save、findOne
     return result
   }
 
