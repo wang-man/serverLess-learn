@@ -10,13 +10,13 @@ const BasicSetting = () => {
   const { title = '' } = attributes;
 
   const handleSaveBtnClick = () => {
-    request.post('/api/schema/save', {
+    request.post('http://bloghttpservice-save.serverless-blog.1110945173298580.cn-hangzhou.fc.devsapp.net/api/schema/save', {
       schema: JSON.stringify(schema)
     }).then(() => { })
   }
 
   const handleResetBtnClick = () => {
-    request.get('/api/schema/getLast').then((response) => {
+    request.get('http://bloghttpservice-get.serverless-blog.1110945173298580.cn-hangzhou.fc.devsapp.net/api/schema/getLast').then((response) => {
       const data = response?.data;
       data && changeSchema(parseJsonByString(data.schema, {}));
     });

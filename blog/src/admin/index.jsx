@@ -31,14 +31,14 @@ const useCollapsed = () => {
 }
 
 const Wrapper = () => {
-  const handleHomePageRedirect = () => { window.location.href = "/" }
+  const handleHomePageRedirect = () => { window.location.href = "http://blogrouterservice-home.serverless-blog.1110945173298580.cn-hangzhou.fc.devsapp.net/" }
   const { collapsed, toggleCollapsed } = useCollapsed();
   const { changeSchema } = useSchemaData();
   const login = getLoginStatus();
   const photo = window.localStorage.photo;
 
   useEffect(() => {
-    request.get('/api/schema/getLast').then((response) => {
+    request.get('http://bloghttpservice-get.serverless-blog.1110945173298580.cn-hangzhou.fc.devsapp.net/api/schema/getLast').then((response) => {
       const data = response?.data;
       data && changeSchema(parseJsonByString(data.schema, {}));
     });

@@ -18,7 +18,7 @@ const Home = () => {
   const { children = [], attributes = {} } = pageSchema;
 
   useEffect(() => {
-    request.get('/api/schema/getLast').then((response) => {
+    request.get('http://bloghttpservice-get.serverless-blog.1110945173298580.cn-hangzhou.fc.devsapp.net/api/schema/getLast').then((response) => {
       const data = response?.data;
       data && setPageSchema(parseJsonByString(data.schema, {}));
     });
